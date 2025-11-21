@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+FN;CHARSET=UTF-8:Tierry Danquin
+N;CHARSET=UTF-8:Danquin;Tierry;;;
+GENDER:M
+EMAIL;CHARSET=UTF-8;type=HOME,INTERNET:contact@oothkoo.com
+TEL;TYPE=WORK,VOICE:0658274556
+ADR;CHARSET=UTF-8;TYPE=HOME:;;;Paris;;;France
+URL;CHARSET=UTF-8:http://oothkoo.com
+X-SOCIALPROFILE;TYPE=twitter:https://twitter.com/oothkoo
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/tierry-danquin-oothkoo
+X-SOCIALPROFILE;TYPE=CV:https://www.oothkoo.com/wp-downloads/cv-tierry-danquin.pdf
+REV:2025-11-21T09:35:17.928Z
+END:VCARD
