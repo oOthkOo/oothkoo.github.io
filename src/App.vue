@@ -2,6 +2,36 @@
     import { ref } from 'vue'
     import Link from '@/components/Link.vue'
 
+    const downloadToFile = (content, filename, contentType) => {
+        const a = document.createElement('a')
+        const file = new Blob([content], { type: contentType })
+
+        a.href = URL.createObjectURL(file)
+        a.download = filename
+        a.click()
+
+        URL.revokeObjectURL(a.href)
+    }
+    const onVcardClick = (e) => {
+        const vcard = `
+        BEGIN:VCARD
+        VERSION:3.0
+        FN;CHARSET=UTF-8:Tierry Danquin
+        N;CHARSET=UTF-8:Danquin;Tierry;;;
+        GENDER:M
+        EMAIL;CHARSET=UTF-8;type=HOME,INTERNET:contact@oothkoo.com
+        TEL;TYPE=WORK,VOICE:0658274556
+        ADR;CHARSET=UTF-8;TYPE=HOME:;;;Paris;;;France
+        URL;CHARSET=UTF-8:http://oothkoo.com
+        X-SOCIALPROFILE;TYPE=twitter:https://twitter.com/oothkoo
+        X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/tierry-danquin-oothkoo
+        X-SOCIALPROFILE;TYPE=CV:https://www.oothkoo.com/wp-downloads/cv-tierry-danquin.pdf
+        REV:2025-11-21T09:35:17.928Z
+        END:VCARD`
+
+        downloadToFile(vcard, 'tierry-danquin.vcf', 'text/vcard')
+    }
+
     const links = ref([
         {
             icon: 'fa-solid fa-envelope',
@@ -62,13 +92,10 @@
             />
         </div>
         <div class="footer">
-            <a
-                class="link"
-                href="vcard;base64,QkVHSU46VkNBUkQKVkVSU0lPTjozLjAKRk47Q0hBUlNFVD1VVEYtODpUaWVycnkgRGFucXVpbgpOO0NIQVJTRVQ9VVRGLTg6RGFucXVpbjtUaWVycnk7OzsKR0VOREVSOk0KRU1BSUw7Q0hBUlNFVD1VVEYtODt0eXBlPUhPTUUsSU5URVJORVQ6Y29udGFjdEBvb3Roa29vLmNvbQpURUw7VFlQRT1XT1JLLFZPSUNFOjA2NTgyNzQ1NTYKQURSO0NIQVJTRVQ9VVRGLTg7VFlQRT1IT01FOjs7O1BhcmlzOzs7RnJhbmNlClVSTDtDSEFSU0VUPVVURi04Omh0dHA6Ly9vb3Roa29vLmNvbQpYLVNPQ0lBTFBST0ZJTEU7VFlQRT10d2l0dGVyOmh0dHBzOi8vdHdpdHRlci5jb20vb290aGtvbwpYLVNPQ0lBTFBST0ZJTEU7VFlQRT1saW5rZWRpbjpodHRwczovL3d3dy5saW5rZWRpbi5jb20vaW4vdGllcnJ5LWRhbnF1aW4tb290aGtvbwpYLVNPQ0lBTFBST0ZJTEU7VFlQRT1DVjpodHRwczovL3d3dy5vb3Roa29vLmNvbS93cC1kb3dubG9hZHMvY3YtdGllcnJ5LWRhbnF1aW4ucGRmClJFVjoyMDI1LTExLTIxVDA5OjM1OjE3LjkyOFoKRU5EOlZDQVJE=="
-                download="tierry-danquin.vcf"
-            >
-                <div class="save-btn">Save Contact</div>
-            </a>
+            <div
+                class="save-btn"
+                @click="onVcardClick"
+            >Save Contact</div>
         </div>
     </div>
 </template>
@@ -171,25 +198,20 @@
                 @media (min-width: 768px) {
                     border-radius: 0px 0px 22px 22px;
                 }
-
-                .link {
-                    text-decoration: none;
+                .save-btn {
+                    max-width: 220px;
+                    padding: .75rem 2.5rem;
+                    border-radius: 80px;
+                    white-space: nowrap;
+                    font-weight: 700;
+                    font-size: 1.375rem;
+                    text-align: center;
+                    letter-spacing: .3px;
+                    background: #2b2b2b;
                     color: white;
-
-                    .save-btn {
-                        max-width: 220px;
-                        padding: .75rem 2.5rem;
-                        border-radius: 80px;
-                        white-space: nowrap;
-                        font-weight: 700;
-                        font-size: 1.375rem;
-                        text-align: center;
-                        letter-spacing: .3px;
-                        background: #2b2b2b;
-                        
-                        box-shadow: 0 1px 5px 0 rgb(82 93 102 / 25%), 0 2px 8px 0 rgb(82 93 102 / 15%);
-                        cursor: pointer;
-                    }
+                    
+                    box-shadow: 0 1px 5px 0 rgb(82 93 102 / 25%), 0 2px 8px 0 rgb(82 93 102 / 15%);
+                    cursor: pointer;
                 }
             }
         }
