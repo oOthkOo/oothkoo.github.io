@@ -1,6 +1,6 @@
 # oOThKOo
 
-<img width="300" src="https://github.com/oOthkOo/oothkoo.github.io/blob/main/assets/qrcode.svg" alt="Bitcoin"/>
+<img width="300" src="https://github.com/oOthkOo/oothkoo.github.io/blob/main/public/assets/qrcode.svg" alt="Bitcoin"/>
 
  Demo
 -----
