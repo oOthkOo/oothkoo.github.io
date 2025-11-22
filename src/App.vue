@@ -112,6 +112,7 @@
         class="qrcode-dialog"
         v-model="showQRcodeDialog"
         hide-default-actions
+        close-button
         max-width="350px"
     >
         <img class="qrcode" src="/assets/qrcode.svg" border="0" />
@@ -169,10 +170,10 @@
         }
 
         .home {
-            max-width: 440px;
             background: white;
 
             @media (min-width: 768px) {
+                max-width: 440px;
                 border-radius: 22px;
                 box-shadow: 0 0 0 1px rgba(15, 15, 15, .05), 0 3px 6px rgba(15, 15, 15, .1), 0 9px 24px rgba(15, 15, 15, .2);
             }
@@ -187,6 +188,7 @@
                 .banner {
 
                     .image {
+                        width: 100%;
                         
                         @media (min-width: 768px) {
                             border-radius: 22px 22px 0px 0px;

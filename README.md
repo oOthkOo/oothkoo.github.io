@@ -1,6 +1,6 @@
 # oOThKOo
 
-<img width="300" src="https://github.com/oOthkOo/oothkoo.github.io/blob/main/public/assets/qrcode.svg" alt="Bitcoin"/>
+<img width="300" src="https://github.com/oOthkOo/oothkoo.github.io/blob/main/public/assets/qrcode.svg" alt="QR Code"/>
 
  Demo
 -----
@@ -23,6 +23,7 @@ You can view the demo [here](https://oothkoo.github.io).
  --- | ---
  Vue 3 | https://vuejs.org 
  Font Awesome | https://fontawesome.com/search?q=file&ic=free-collection
+ Vuestic UI | https://ui.vuestic.dev
 
  Donations
 -----
