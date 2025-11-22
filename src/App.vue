@@ -31,7 +31,9 @@
 
         downloadToFile(vcard, 'tierry-danquin.vcf', 'text/vcard')
     }
-
+    const closeDialog = () => {
+        showQRcodeDialog.value = false
+    }
     const showQRcodeDialog = ref(false)
     const links = ref([
         {
@@ -117,14 +119,22 @@
     >
         <img class="qrcode" src="/assets/qrcode.svg" border="0" />
 
-        <VaButton
-            class="download-qrcode-btn"
-            icon="download"
-            href="/assets/qrcode.svg"
-            target="_blank"
-        >
-            Download
-        </VaButton>
+        <div class="menu">
+            <VaButton
+                class="download-qrcode-btn"
+                icon="download"
+                href="/assets/qrcode.svg"
+                target="_blank"
+            >
+                Download
+            </VaButton>
+            <VaButton
+                class="close-btn"
+                @click="closeDialog"
+            >
+                Close
+            </VaButton>
+        </div>
     </VaModal>
 </template>
 
@@ -154,9 +164,22 @@
 
         .qrcode {
             max-width: 300px;
+            
+            @media (max-width: 768px) {
+                margin-top: 50px;
+            }
         }
-        .download-qrcode-btn {
+        .menu {
+            display: flex;
+            align-items: center;
             margin-top: 10px;
+
+            .download-qrcode-btn {
+                
+            }
+            .close-btn {
+                margin-left: 10px;
+            }
         }
     }
     #app {
