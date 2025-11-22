@@ -3,10 +3,22 @@
         'link'
     ])
     const link = props.link
+
+    const onLinkClick = (e, l) => {
+        if (l.click) {
+            e.preventDefault()
+            l.click()
+        }
+    }
 </script>
 
 <template>
-    <a class="link" :href="link.url" target="_blank">
+    <a
+        class="link"
+        :href="link.url"
+        target="_blank"
+        @click="(e) => onLinkClick(e, link)"
+    >
         <div class="content">
             <div class="icon">
                 <font-awesome-icon

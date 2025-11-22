@@ -32,6 +32,7 @@
         downloadToFile(vcard, 'tierry-danquin.vcf', 'text/vcard')
     }
 
+    const showQRcodeDialog = ref(false)
     const links = ref([
         {
             icon: 'fa-solid fa-envelope',
@@ -67,6 +68,14 @@
             icon: 'fa-regular fa-window-maximize',
             text: 'oothkoo.com',
             url: 'http://oothkoo.com'
+        },
+        {
+            icon: 'fa-solid fa-qrcode',
+            text: 'QR Code',
+            url: '#',
+            click: () => {
+                showQRcodeDialog.value = true
+            }
         }
     ])
 </script>
@@ -98,6 +107,24 @@
             >Save Contact</div>
         </div>
     </div>
+
+    <VaModal
+        class="qrcode-dialog"
+        v-model="showQRcodeDialog"
+        hide-default-actions
+        max-width="350px"
+    >
+        <img class="qrcode" src="/assets/qrcode.svg" border="0" />
+
+        <VaButton
+            class="download-qrcode-btn"
+            icon="download"
+            href="/assets/qrcode.svg"
+            target="_blank"
+        >
+            Download
+        </VaButton>
+    </VaModal>
 </template>
 
 <style>
@@ -113,6 +140,22 @@
 
         @media (min-width: 768px) {
             height: 100%;
+        }
+    }
+    .qrcode-dialog {
+        
+        .va-modal__message {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .qrcode {
+            max-width: 300px;
+        }
+        .download-qrcode-btn {
+            margin-top: 10px;
         }
     }
     #app {
