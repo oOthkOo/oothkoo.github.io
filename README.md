@@ -1,5 +1,7 @@
 # oOThKOo
 
+<img width="300" src="https://github.com/oOthkOo/oothkoo.github.io/blob/main/assets/qrcode.svg" alt="Bitcoin"/>
+
  Demo
 -----
 This project is a static html page for my virtual business card.
